@@ -1,6 +1,6 @@
 PID = 0
 
-.PHONY: install run rm_qq clean
+.PHONY: install run rm_qq clean plugin
 
 install:
 	pip3 install -U pipenv
@@ -16,3 +16,6 @@ rm_qq:
 clean:
 	rm *.pickle
 	rm *.db
+
+plugin:
+	python3 utils/add_plugin.py

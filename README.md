@@ -6,16 +6,16 @@
 
 Linux 系统请按照以下步骤进行部署：
 
-1. 安装Python3
-1. 安装pip3
+1. 安装 Python3
+1. 安装 pip3
 1. 克隆项目：`git clone https://github.com/NiX-Team/qqbot.git`
 1. 进入项目根目录：`cd qqbot`
 1. 安装虚拟环境及依赖包：`make install`
 
 Windows 系统请按照以下步骤进行部署：
 
-1. 安装Python3
-1. 安装pip3
+1. 安装 Python3
+1. 安装 pip3
 1. 克隆项目：`git clone https://github.com/NiX-Team/qqbot.git`
 1. 进入项目根目录：`cd qqbot`
 1. 安装虚拟环境：`pip3 install -U pipenv`
@@ -25,6 +25,10 @@ Windows 系统请按照以下步骤进行部署：
 ## 运行
 
 首先确保当前目录为项目根目录，Linux 下调用 `make run` 运行本机器人，Windows 请调用 `pipenv run qqbot -b .`。
+
+## 插件模板生成
+
+使用 `make plugin` 可以生成插件模板，该脚本生成之后的插件存入 plugins 目录。脚本中可以指定将新生成的插件加入配置文件。目前支持九种回调函数以及定时任务的模板生成。
 
 ## 数据清理
 
