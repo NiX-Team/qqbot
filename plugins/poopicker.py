@@ -12,10 +12,18 @@ poopicker_list = ['勾雷',
 
 pick_day = '19950418'
 
+changed = ''
+
 
 def get_today_poopicker():
+    if changed:
+        return changed
     return poopicker_list[datetime.now().weekday()]
 
+
+@qqbotsched(hour='0', minute='0')
+def clean(bot):
+    changed = ''
 
 @qqbotsched(hour='10,15,20,21,22,23', minute='0')
 def poopicker(bot):
@@ -37,3 +45,15 @@ def onQQMessage(bot, contact, member, content):
        '今' in content and\
        '铲屎' in content:
         bot.SendTo(contact, get_today_poopicker())
+
+    if '@ME' in content and\
+       member.name.split('-')[-1] == get_today_poopicker() and\
+       '换' in content:
+        for p in poopicker_list:
+            if p in content:
+                global changed
+                changed = p
+                bot.SendTo(contact, 'OK')
+                break
+        else:
+            bot.SendTo(contact, '换谁？')
