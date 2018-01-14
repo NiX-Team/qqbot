@@ -23,7 +23,9 @@ def get_today_poopicker():
 
 @qqbotsched(hour='0', minute='0')
 def clean(bot):
+    global changed
     changed = ''
+
 
 @qqbotsched(hour='10,15,20,21,22,23', minute='0')
 def poopicker(bot):
